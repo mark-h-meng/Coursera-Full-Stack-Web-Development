@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEEK 2 ASSESSMENT - GAME</title>
+	<meta name="author" content="Mark Meng Huasong">
+</head>
+<body onload="do_game()">
+	<script type="text/javascript">
+		/* The list of colors were referred from the list
+		of common html color code from htmlcolorcodes.com  */
+		var colors = ["white", "silver" ,"gray", "black",
+			"red", "marron", "yellow", "olive", "lime",
+			"green", "aqua", "teal", "blue", "navy", 
+			"fuchsia", "purple"];
+		var target;
+		var guess;
+		var count = 0;
+		var finished = false;
+		function do_game() {
+			colors.sort();
+			target = Math.floor(Math.random()*colors.length);
+			alert("The answer is: " + colors[target]);
+			var promptMessage = "I am thinking of one of these colors:\n\n"
+				+ colors.join(', ')  + "\n\nWhat color am I thinking of?";
+			do {
+				guess = prompt(promptMessage);
+				// User can stop the game through prompt popup.
+                if (guess == null) {
+                    alert("You have cancel the game, "
+                         + "please refresh/reload the webpage to play again.");
+                    break;
+                }
+				count++;
+				check_guess();
+			} while(!finished);
+		}
+		function check_guess() {
+			var colorNotFound = "Sorry, I don't recognize your color!\n\n"
+				+ "Please try again.";
+			var colorTooHigh = "Sorry, your guess is not correct\n\n"
+				+ "Your input is alphabetically higher than mine!\n\n"
+				+ "Please try again.";
+			var colorTooLow = "Sorry, your guess is not correct\n\n"
+				+ "Your input is alphabetically lower than mine!\n\n"
+				+ "Please try again.";
+			var correctMessage = "Congratulation! " 
+				+ "You have guessed the color!\n\n"
+				+ "It took you " + count 
+				+ ((count>1)?" guesses":" guess") 
+				+ " to finish the game!\n\n"
+				+ "You can see the color in the background.";
+			var indexOfGuess = colors.indexOf(guess);
+			if(indexOfGuess<0) {
+				alert(colorNotFound);
+				finished = false; // Remain in the do-while loop
+			} 
+			else if (indexOfGuess<target) {
+				alert(colorTooLow);
+				finished = false; // Remain in the do-while loop
+			}
+			else if (indexOfGuess>target) {
+				alert(colorTooHigh);
+				finished = false; // Remain in the do-while loop
+			} 
+			else {
+				myBody=document.getElementsByTagName("body")[0];
+				myBody.style.background=colors[target];
+				alert(correctMessage);
+				finished = true; // Stop & exit the do-while loop
+			}
+		}
+	</script>
+</body>
+</html>

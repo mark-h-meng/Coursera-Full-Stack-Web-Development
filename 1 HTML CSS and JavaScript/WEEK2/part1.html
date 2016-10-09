@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEEK 2 ASSESSMENT - GAME</title>
+	<meta name="author" content="Mark Meng Huasong">
+</head>
+<body onload="do_game()">
+	<script type="text/javascript">
+		/* The list of colors were referred from the list
+		of common html color code from htmlcolorcodes.com  */
+		var colors = ["white", "silver" ,"gray", "black",
+			"red", "marron", "yellow", "olive", "lime",
+			"green", "aqua", "teal", "blue", "navy", 
+			"fuchsia", "purple"];
+		var target;
+		var guess;
+		function do_game() {
+			colors.sort();
+			target = Math.floor(Math.random()*colors.length);
+			alert("The answer is: " + colors[target]);
+			var promptMessage = "I am thinking of one of these colors:\n\n"
+				+ colors.join(', ')  + "\n\nWhat color am I thinking of?";
+			do {
+				guess = prompt(promptMessage);
+			} while (guess != colors[target]);
+		}
+	</script>
+</body>
+</html>

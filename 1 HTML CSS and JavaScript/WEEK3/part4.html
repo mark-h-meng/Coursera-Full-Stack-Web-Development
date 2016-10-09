@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MATCHING GAME</title>
+	<meta name="author" content="Mark Meng Huasong">
+	<style type="text/css">
+	img {position: absolute;}
+	div {position: absolute;
+		width: 500px;
+		height: 500px;
+	}
+	#rightSide {
+		left: 500px;
+		border-left: 1px solid black;
+	}
+	</style>
+</head>
+<body>
+	<h1>Matching Game</h1>
+	<p>Click on the extra smiling face on the left.</p>
+	<div id="leftSide"></div> 
+	<div id="rightSide"></div> 
+	<script type="text/javascript">
+		var numberOfFaces = 5;
+		var theLeftSide = document.getElementById("leftSide");
+		var theRightSide = document.getElementById("rightSide");
+		var theBody = document.getElementsByTagName("body")[0];
+		function generateFaces(){
+			// Clear the Screen (Both Sides)
+			while(theLeftSide.firstChild){
+				theLeftSide.removeChild(theLeftSide.firstChild);
+			}
+			while(theRightSide.firstChild){
+				theRightSide.removeChild(theRightSide.firstChild);
+			}
+			// Generate Faces on Left Side
+			for (i=0;i<numberOfFaces;i++){
+				var image=document.createElement("img");
+				image.src="http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+				image.style.left=Math.floor(Math.random()*401)+"px";
+				image.style.top=Math.floor(Math.random()*401)+"px";
+				theLeftSide.appendChild(image);
+			}
+			// Clone the Images to Right Side
+			var imagesOnTheLeft = theLeftSide.cloneNode(true);
+			imagesOnTheLeft.removeChild(imagesOnTheLeft.lastChild);
+			theRightSide.appendChild(imagesOnTheLeft);
+			// Add OnClick Event Handler to the Last Image on Left Side
+			theLeftSide.lastChild.onclick = function nextLevel(event){
+				event.stopPropagation();
+				numberOfFaces += 5;
+				generateFaces();
+			}
+		}
+		generateFaces();
+		// Handle OnClick on Other Items of the Webpage
+		theBody.onclick = function gameOver() {
+    		alert("Game Over!");
+    		theBody.onclick = null;
+    		theLeftSide.lastChild.onclick = null;
+		}; 
+	</script>
+</body>
+</html>

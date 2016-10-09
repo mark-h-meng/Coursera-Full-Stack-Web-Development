@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEEK 1 ASSESSMENT</title>
+	<meta name="author" content="Mark Meng Huasong">
+	<style type="text/css">
+	fieldset {background: lightyellow; border: 10px solid yellow; margin-bottom: 10px; width: 720px}
+	label {display: inline-block; text-align: right; vertical-align: top}
+	label:hover { font-size:40px }
+	input:hover { font-size:40px }
+	textarea {width: 360px; height: 50px}
+	img { max-width: 50%;}
+	.checkboxLabel {width: auto}
+	.wordsOfRangeLeft {text-align: center; background: brown; color: white}
+	.wordsOfRangeRight {text-align: center; background: purple; color: white}
+	.shortInput {width:60px;}
+	.wideLabel {width: 160px}
+	</style>
+</head>
+<body>
+	<h1>Please Enter Your Details For Our Dating Website!</h1>
+	<form action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php " method="post" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Your Face</legend>
+			<label for="avatar" class="wideLabel">Your image: </label>
+			<input type="file" id="avatar" name="avatar" required/></br>
+			<label for="preview" class="wideLabel">Image preview: </label>	
+			<img id="preview">
+		</fieldset>
+		<fieldset>
+			<legend>Your General Details</legend>
+			<label for="name" class="wideLabel">Name: </label>
+			<input type= "text" name="name" id="image" placeholder="Your full name" required/></br>
+			<label for="male female" class="wideLabel">Gender: </label>
+			<input type="radio" id="male" name="gender" value="male" required/><label for="male"> Male </label>
+			<input type="radio"  id="female" name="gender" value="female" required/><label for="female"> Female </label></br>
+			<label for="age" class="wideLabel">Age: </label>
+			<input type="number" class="shortInput" id="age" name="age" required/></br>
+			<label for="dob" class="wideLabel">Date of Birth: </label>
+			<input type="date" id="dob" name="dob"/></br>
+			<label for="favoriteColor" class="wideLabel">Favorite Color: </label>
+			<input type="color" id="favoriteColor" name="favoriteColor"/></br>
+			<label for="country" class="wideLabel">Which Country: </label>
+			<select name="country">
+				<option value="nil"></option>
+				<option value="AUS">Australia</option>
+				<option value="FRA">France</option>
+				<option value="GBR">United Kingdom</option>
+				<option value="USA">United States</option>
+				<option value="other">Others</option>
+			</select></br>
+		</fieldset>
+		<fieldset>
+			<legend>Your Indicators</legend>
+			<label for="height" class="wideLabel">Height: </label>
+			<span class="wordsOfRangeLeft">&nbspShort&nbsp</span>
+			<input type="range" min="0" max="100" step="20" value="50" id="height" name="height">
+			<span class="wordsOfRangeRight">&nbspTall&nbsp</span></br>
+			<label for="salary" class="wideLabel">Salary: </label>
+			<span class="wordsOfRangeLeft">&nbspPoor&nbsp</span> 
+			<input type="range" min="0" max="100" step="20" value="50" id="salary" name="salary">
+			<span class="wordsOfRangeRight">&nbspRich&nbsp</span></br>
+		</fieldset>
+		<fieldset>
+			<legend>Your Contact Information</legend>
+			<label for="email" class="wideLabel">Email: </label>
+			<input type= "email" name="email" id="email" required/></br>
+			<label for="mobile" class="wideLabel">Mobile: </label>
+			<input type= "tel" name="mobile" id="mobile"/></br>
+			<label for="addr" class="wideLabel">Address: </label>
+			<textarea name="address" id="addr"></textarea></br>
+			<label for="email whatsapp inappchat" class="wideLabel">Method to contact you: </label>
+			<input type="checkbox" name="contact" id="email" value="email">
+			<label for="email" class="checkboxLabel"> Email </label>
+			<input type="checkbox" name="contact" id="whatsapp" value="whatsapp">
+			<label for="whatsapp" class="checkboxLabel">Whatsapp </label>
+			<input type="checkbox" name="contact" id="inappchat" value="inappchat">
+			<label for="inappchat" class="checkboxLabel"> In-app chat </label></br>
+		</fieldset>
+		<input type="submit" value="Submit">
+	</form>
+	<!--The JS Script has been placed here-->
+	<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+</body>
+</html>
