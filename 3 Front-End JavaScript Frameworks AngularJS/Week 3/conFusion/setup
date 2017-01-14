@@ -1,0 +1,15 @@
+#!/bin/bash
+set -x
+
+# install gulp globally
+npm install -g gulp
+
+# install locally
+npm install gulp --save-dev
+
+npm install jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-minify-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify  browser-sync del --save-dev
+
+npm install gulp-ng-annotate --save-dev
+
+# fix multiple file input to usemin problem
+npm install gulp-foreach --save-dev
