@@ -155,11 +155,12 @@ angular.module('conFusion.controllers', [])
   };
 }])
 
-.controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicPopover', 
-  function($scope, $stateParams, menuFactory, favoriteFactory, baseURL, $ionicPopover) {
+.controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicPopover', '$ionicModal',
+  function($scope, $stateParams, menuFactory, favoriteFactory, baseURL, $ionicPopover, $ionicModal) {
   
   $scope.baseURL = baseURL;  
   $scope.dish = {};
+  $scope.commentData = {};
   $scope.showDish = false;
   $scope.message="Loading ...";
 
@@ -180,6 +181,12 @@ angular.module('conFusion.controllers', [])
     $scope.popover = popover;
   });
 
+  $ionicModal.fromTemplateUrl('templates/dish-comment.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.dishCommentModal = modal;
+  });
+
   $scope.openPopover = function($event) {
     $scope.popover.show($event);
   };
@@ -196,6 +203,39 @@ angular.module('conFusion.controllers', [])
     console.log("index is " + $scope.dish.id);
     favoriteFactory.addToFavorites($scope.dish.id);
     $scope.closePopover();
+  };
+
+  $scope.openDishCommentModal = function() {
+    $scope.dishCommentModal.show();
+  };
+
+  $scope.closeDishCommentModal = function() {
+    $scope.dishCommentModal.hide();
+  };
+
+  $scope.addComment = function() {
+    $scope.openDishCommentModal();
+    $scope.closePopover();
+  };
+
+  $scope.submitComment = function() {
+    $scope.commentData.date = new Date().toISOString();
+    console.log($scope.commentData);
+
+    $scope.dish.comments.push($scope.commentData);
+    menuFactory.getDishes().update({
+      id: $scope.dish.id
+    }, $scope.dish);
+
+    $scope.commentData = {
+      rating: 5,
+      comment: "",
+      author: "",
+      date: ""
+    };
+
+    $scope.closeDishCommentModal();
+    
   };
 
 }])
@@ -215,7 +255,8 @@ angular.module('conFusion.controllers', [])
     $scope.commentForm.$setPristine();
     
     $scope.mycomment = {rating:5, comment:"", author:"", date:""};
-  }
+  };
+
 }])
 
 // implement the IndexController and About Controller here
