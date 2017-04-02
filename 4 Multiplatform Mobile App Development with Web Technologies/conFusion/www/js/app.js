@@ -4,10 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+angular.module('conFusion', ['ionic', 'ngCordova', 'conFusion.controllers','conFusion.services'])
+.run(function($ionicPlatform, $rootScope, $ionicLoading, $cordovaSplashscreen, $timeout) {
 
-angular.module('conFusion', ['ionic', 'conFusion.controllers','conFusion.services'])
-.run(function($ionicPlatform, $rootScope, $ionicLoading) {
-  
   $rootScope.$on('loading:show', function () {
     $ionicLoading.show({
       template: '<ion-spinner></ion-spinner> Loading ...'
@@ -40,6 +39,9 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers','conFusion.service
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    $timeout(function(){
+      $cordovaSplashscreen.hide();
+    },20000);
   });
 })
 
