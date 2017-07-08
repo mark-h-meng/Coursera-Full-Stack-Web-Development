@@ -8,7 +8,13 @@ Step 1 Starting MongoDB service at /mongodb/data.
 
  And keep the database running.
 
-Step 2 Initialising Node MongoDB Driver and assert package (for testing purpose)
+Step 2 Scaffold out an Express Application
+
+ Scaffold out an Express application named rest-server-passport using the Express generator 
+
+  express rest-server-passport
+
+Step 3 Initialising Node MongoDB Driver and assert package (for testing purpose)
 
  Create a folder /rest-server-passport and go inside.
  Execute following commands:
@@ -16,11 +22,6 @@ Step 2 Initialising Node MongoDB Driver and assert package (for testing purpose)
   sudo npm install mongodb --save
   sudo npm install assert --save
 
-Step 3 Scaffold out an Express Application
-
- Scaffold out an Express application named rest-server-passport using the Express generator 
-
-  express rest-server
 
 Step 4 Installing passport authentication support
 
@@ -38,6 +39,10 @@ Step 6 Copying the necessary files to corresponding directories
  Move user.js, verify.js, dishRouter.js, promoRouter.js & leaderRouter.js to the folder /rest-server/router
 
 Step 5 Starting the server & Test
+
+ Install all required modules:
+
+  sudo npm install
 
  Start the server by executing command below under folder /rest-server:
 
