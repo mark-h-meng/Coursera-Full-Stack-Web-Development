@@ -3,63 +3,63 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Verify = require('./verify');
 
-var Leaders = require('../models/leadership');
+var Promotions = require('../models/promotions');
 
-var leaderRouter = express.Router();
+var promoRouter = express.Router();
 
-leaderRouter.use(bodyParser.json());
+promoRouter.use(bodyParser.json());
 
-leaderRouter.route('/')
+promoRouter.route('/')
 .get(Verify.verifyOrdinaryUser, function (req, res, next) {
-    Leaders.find({}, function (err, leader) {
+    Promotions.find({}, function (err, promotion) {
         if (err) throw err;
-        res.json(leader);
+        res.json(promotion);
     });
 })
 
 .post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
-    Leaders.create(req.body, function (err, leader) {
+    Promotions.create(req.body, function (err, promotion) {
         if (err) throw err;
-        console.log('Leader created!');
-        var id = leader._id;
+        console.log('Promotion created!');
+        var id = promotion._id;
 
         res.writeHead(200, {
             'Content-Type': 'text/plain'
         });
-        res.end('Added the leader with id: ' + id);
+        res.end('Added the promotion with id: ' + id);
     });
 })
 
 .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
-    Leaders.remove({}, function (err, resp) {
+    Promotions.remove({}, function (err, resp) {
         if (err) throw err;
         res.json(resp);
     });
 });
 
-leaderRouter.route('/:leaderId')
+promoRouter.route('/:promotionId')
 .get(Verify.verifyOrdinaryUser, function (req, res, next) {
-    Leaders.findById(req.params.leaderId, function (err, leader) {
+  Promotions.findById(req.params.promotionId, function (err, promotion) {
         if (err) throw err;
-        res.json(leader);
+        res.json(promotion);
     });
 })
 
 .put(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
-    Leaders.findByIdAndUpdate(req.params.leaderId, {
+    Promotions.findByIdAndUpdate(req.params.promotionId, {
         $set: req.body
     }, {
         new: true
-    }, function (err, leader) {
+    }, function (err, promotion) {
         if (err) throw err;
-        res.json(leader);
+        res.json(promotion);
     });
 })
 
 .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
-    Leaders.findByIdAndRemove(req.params.leaderId, function (err, resp) {        if (err) throw err;
+    Promotions.findByIdAndRemove(req.params.promotionId, function (err, resp) {        if (err) throw err;
         res.json(resp);
     });
 });
 
-module.exports = leaderRouter
+module.exports = promoRouter;

@@ -10,20 +10,19 @@ Step 1 Starting MongoDB service at /mongodb/data.
 
 Step 2 Scaffold out an Express Application
 
- Scaffold out an Express application named rest-server-passport using the Express generator 
+ Scaffold out an Express application named mongoose-population using the Express generator 
 
-  express rest-server-passport
+  express mongoose-population
 
-Step 3 Initialising Node MongoDB Driver, assert package (for testing purpose) and mongoose ODM module.
+Step 3 Initialising all required npm modules.
 
- Create a folder /rest-server-passport and go inside.
+ Go to the folder /mongoose-population.
  Execute following commands:
 
   sudo npm install mongodb --save
   sudo npm install assert --save
   sudo npm install mongoose --save
   sudo npm install mongoose-currency --save
-
 
 Step 4 Installing passport authentication support
 
@@ -32,13 +31,13 @@ Step 4 Installing passport authentication support
 
 Step 5 Setting up a config File
  
- Copy config.js to the target folder \rest-server-passport
+ Copy config.js to the target folder /mongoose-population
 
 Step 6 Copying the necessary files to corresponding directories
 
- Move the folder /models to the folder /rest-server
- Move the app.js to the folder /rest-server
- Move user.js, verify.js, dishRouter.js, promoRouter.js & leaderRouter.js to the folder /rest-server/router
+ * Move the folder /models to the folder /mongoose-population
+ * Move the app.js to the folder /mongoose-population
+ * Move the folder /routes to the folder /mongoose-population
 
 Step 5 Starting the server & Test
 
@@ -66,4 +65,4 @@ Step 5 Starting the server & Test
 
  Add a header x-access-token with the value you copied in login request, then repeat the GET at http://localhost:3000/dishes, now you should be able to see the records in database.
 
-
+ Step 6 Creating a admin user, please refer to README-SET-ADMIN.md.
