@@ -24,10 +24,11 @@ Step 3 Initialising all required npm modules.
   sudo npm install mongoose --save
   sudo npm install mongoose-currency --save
 
-Step 4 Installing passport authentication support
+Step 4 Installing passport & OAuth authentication support
 
   sudo npm install passport passport-local passport-local-mongoose --save
   sudo npm install jsonwebtoken --save
+  sudo npm install passport-facebook --save
 
 Step 5 Setting up a config File
  
@@ -35,11 +36,19 @@ Step 5 Setting up a config File
 
 Step 6 Copying the necessary files to corresponding directories
 
- * Move the folder /models to the folder /mongoose-population
+ * Move / Merge the folder /models to the folder /mongoose-population
  * Move the app.js to the folder /mongoose-population
- * Move the folder /routes to the folder /mongoose-population
+ * Move the config.js to the folder /mongoose-population
+ * Move the authenticate.js to the folder /mongoose-population
+ * Move / Merge the folder /routes to the folder /mongoose-population
 
-Step 7 Starting the server & Test
+Step 7 Registering your app on Facebook
+
+ Go to https://developers.facebook.com/apps/ and register your app by following the instructions there and obtain your App ID and App Secret, and then update config.js with the information.
+
+ Start your server and test your application. You can log in using Facebook by accessing https://localhost:3443/users/facebook which will redirect you to Facebook for authentication and return to your server.
+
+Step 8 Starting the server & Test
 
  Install all required modules:
 
@@ -48,21 +57,3 @@ Step 7 Starting the server & Test
  Start the server by executing command below under folder /rest-server:
 
   npm start
-
- Follow the data format listed in db.json and test in Postman
-
- In Postman, you can get all models but dishes:
-
- http://localhost:3000/leadership (GET) -> Good
- http://localhost:3000/promotions (GET) -> Good
- http://localhost:3000/dishes (GET) -> Error (403 - No Token Provided)
-
- Now let's register a user and login:
-
- Post {"username":"admin", "password":"admin"} at http://localhost:3000/users/register, a success result will be returned if everything goes well.
-
- Post {"username":"admin", "password":"admin"} at http://localhost:3000/users/login, a success result will be returned if everything goes well. Now don't forget to copy the token value.
-
- Add a header x-access-token with the value you copied in login request, then repeat the GET at http://localhost:3000/dishes, now you should be able to see the records in database.
-
- Step 6 Creating a admin user, please refer to README-SET-ADMIN.md.
