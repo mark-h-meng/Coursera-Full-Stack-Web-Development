@@ -5,10 +5,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="This is the capstone project for the coursera full stack web dev specialization.">
+    <meta name="author" content="Mark Meng">
 
-    <title>Portfolio Item - Start Bootstrap Template</title>
+    <title>fav.food - Your dining buddy in campus</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,9 +21,9 @@
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#563d7c">
       <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" href="#">fav.food</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,13 +35,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#">Favorites</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="#">Promotions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#">Log-in</a>
             </li>
           </ul>
         </div>
@@ -52,9 +52,9 @@
     <div class="container">
 
       <!-- Portfolio Item Heading -->
-      <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
-      </h1>
+      <h1 class="my-4" style="color:#563d7c">Food of the Day
+        <small style="color:black"><em>Mark's Western Resturant</em></small>
+      </h1>    
 
       <!-- Portfolio Item Row -->
       <div class="row">
@@ -65,46 +65,58 @@
 
         <div class="col-md-4">
           <h3 class="my-3">Project Description</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-          <h3 class="my-3">Project Details</h3>
-          <ul>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit Amet</li>
-            <li>Consectetur</li>
-            <li>Adipiscing Elit</li>
-          </ul>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem.</p>    
+
+
+          <blockquote class="blockquote">
+            <p class="small mb-0">This is my favorite resturant. The chicken cutlet is extremely yummy!!!</p>
+            <footer class="blockquote-footer text-right"><em>Food-lover Alice</em>
+          </blockquote>   
+
+          <blockquote class="blockquote">
+            <p class="small mb-0">Don't forget to grab this chance to try this resturant. </br>It's a great promotion in this month.</p>
+            <footer class="blockquote-footer text-right"><em>Mark David</em>
+          </blockquote>   
         </div>
 
       </div>
       <!-- /.row -->
 
       <!-- Related Projects Row -->
-      <h3 class="my-4">Related Projects</h3>
+      <h3 class="my-4">Top Choices</h3>
 
       <div class="row">
-
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x300" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Details</a>
+            </div>
+          </div>
         </div>
 
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x300" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
         </div>
 
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-          </a>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img class="card-img-top" src="http://placehold.it/500x300" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Find More</a>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -116,7 +128,11 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">Copyright &copy; fav.food 2017</br></p>
+        <p class="text-center text-secondary small" style="margin-top:8px;"><em>
+        Mark Meng: huasong.meng{at}gmail.com</br>
+        National University of Singapore</em>
+        </p>
       </div>
       <!-- /.container -->
     </footer>
