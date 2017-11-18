@@ -18,19 +18,19 @@ The entire web app may use a bootstrap theme [1] & angularJS for the frontend de
 
 The features of fav.food could be summarized as below:
 
-| feature Code | title       | summary                                                                                      |
-| ------------ | ----------- | -------------------------------------------------------------------------------------------- |
-| F01          | Item list   | List of food stalls with cover picture                                                       |
-| F02          | User module | Identify user by registration/login                                                          |
-| F03          | Favorite    | User can add any item into favorite list                                                     |
-| F04          | Comment     | User can submit his/her comments                                                             |
+| feature Code | title       | summary                                  |
+| ------------ | ----------- | ---------------------------------------- |
+| F01          | Item list   | List of food stalls with cover picture   |
+| F02          | User module | Identify user by registration/login      |
+| F03          | Favorite    | User can add any item into favorite list |
+| F04          | Comment     | User can submit his/her comments         |
 | F05          | Voting      | User can like/unlike any item, and the total number of "likes" will be reflected on website. |
-| F06          | Ranking     | List of items will be sorted according to the number of “likes"                              |
-| F07          | Promotion   | User can create a promotion event on a specific item (similar with F04-Comment)              |
+| F06          | Ranking     | List of items will be sorted according to the number of “likes" |
+| F07          | Promotion   | User can create a promotion event on a specific item (similar with F04-Comment) |
 
 ## Market Survey
 
-The first phrase of this web app development will focus on a small area and serve a limited group of people. It will be unique service and a good complementary to the other large scale of food review applications such as *Yelp*, *HungryGoWhere* or *OpenRice [2-5] - it has more accuracy in serving users and it will be a very lightweight application.
+The first phrase of this web app development will focus on a small area and serve a limited group of people. It will be unique service and a good complementary to the other large scale of food review applications such as *Yelp*, *HungryGoWhere* or *OpenRice* [2-5] - it has **higher accuracy** in serving users and it will be a very **lightweight web service**.
 
 ## Reference
 
