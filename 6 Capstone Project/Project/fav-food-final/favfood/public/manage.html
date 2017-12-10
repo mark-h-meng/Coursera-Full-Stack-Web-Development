@@ -1,0 +1,133 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is the capstone project for the coursera full stack web dev specialization.">
+    <meta name="author" content="Mark Meng">
+
+    <title>fav.food - Your dining buddy in campus</title>
+</head>
+<body>
+	<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#563d7c">
+      <div class="container">
+        <a class="navbar-brand" href="#">fav.food</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Manage
+                <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Favorites</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Promotions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" ng-controller="AppCtrl">
+    	<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Featured</th>
+					<th>Address</th>
+					<th>Description</th>
+					<th>Hour</th>
+					<th>Price</th>
+					<th>Pic</th>
+					<th>Action</th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="restaurant.name"></td>
+					<td><input class="form-control" ng-model="restaurant.type"></td>
+					<td><input class="form-control" ng-model="restaurant.featured"></td>
+					<td><input class="form-control" ng-model="restaurant.addr"></td>
+					<td><input class="form-control" ng-model="restaurant.description"></td>
+					<td><input class="form-control" ng-model="restaurant.hour"></td>
+					<td><input class="form-control" ng-model="restaurant.price"></td>
+					<td><input class="form-control" ng-model="restaurant.pic"></td>
+					<td>
+						<!--button class="btn btn-primary" ng-click="addRestaurant()">Add New</button-->
+						<i class="fa fa-plus-circle btn btn-primary" aria-hidden="true" ng-click="addRestaurant()" style="color:#eeeeee">
+					</td>
+					<td>
+						<!--button class="btn btn-info" ng-click="update()">Update</button-->
+						<i class="fa fa-check-square-o btn btn-info" aria-hidden="true" ng-click="update()" style="color:#eeeeee">
+					</td>
+					<td>
+						<!--button class="btn btn-info" ng-click="deselect()">Clear</button-->
+						<i class="fa fa-eraser btn btn-info" aria-hidden="true" ng-click="deselect()" style="color:#eeeeee">
+					</td>
+				</tr>
+				<tr ng-repeat="restaurant in restaurantlist">
+					<td>{{restaurant.name}}</td>
+					<td>{{restaurant.type}}</td>
+					<td>{{restaurant.featured}}</td>
+					<td>{{restaurant.addr}}</td>
+					<td>{{restaurant.description}}</td>
+					<td>{{restaurant.hour}}</td>
+					<td>{{restaurant.price}}</td>
+					<td>
+						<img style="height: 100px; object-fit: cover;" 
+              				src="{{restaurant.pic}}" alt="Card image lost">
+					</td>
+					<td>
+						<!--button class="btn btn-danger" ng-click="removeRestaurant(restaurant._id)">Remove</button-->
+						<i class="fa fa-trash btn btn-danger" aria-hidden="true" ng-click="removeRestaurant(restaurant._id)" style="color:#eeeeee">
+					</td>
+					<td>
+						<!--button class="btn btn-warning" ng-click="edit(restaurant._id)">Edit</button-->
+						<i class="fa fa-pencil btn btn-warning" aria-hidden="true" ng-click="edit(restaurant._id)" style="color:#eeeeee">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; fav.food 2017</br></p>
+        <p class="text-center text-secondary small" style="margin-top:8px;"><em>
+        Mark Meng: huasong.meng{at}gmail.com</br>
+        National University of Singapore</em>
+        </p>
+      </div>
+      <!-- /.container -->
+    </footer>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="https://use.fontawesome.com/7d177b33b1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+	<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="This is the capstone project for the coursera full stack web dev specialization.">
+    <meta name="author" content="Mark Meng">
+
+    <title>fav.food - Your dining buddy in campus</title>
+</head>
+<body>
+	<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#563d7c">
+      <div class="container">
+        <a class="navbar-brand" href="#">fav.food</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="manage.html">Manage</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Favorites</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Promotions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" ng-controller="AppCtrl">
+
+      <!-- Portfolio Item Heading -->
+      <h1 class="my-4" style="color:#563d7c">Food of the Week &nbsp;
+        <small style="color:black"><em>Astons Express (Western)</em></small>
+      </h1>    
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-8">
+          <img class="img-fluid" style="height: 470px; width: 750px; object-fit: cover;"
+            src="http://www.seriouseats.com/recipes/assets_c/2014/09/20140929-salmon-burger-yasmin-recipe-7-thumb-1500xauto-411983.jpg" alt="">
+        </div>
+
+        <div class="col-md-4">          
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem.</p>  
+          <br>
+          <h6 class="my-3"><i class="fa fa-map-marker" aria-hidden="true" style="color:#563d7c"></i>&nbsp;
+            2 College Avenue West
+            #02-01 Stall 10 Flavours @ UTown
+            Singapore 138607
+          </h6>   
+          <h6 class="my-3"><i class="fa fa-clock-o" aria-hidden="true" style="color:#563d7c"></i>&nbsp;
+            10:00am - 10:00pm, Everyday
+          </h6>  
+          <h6 class="my-3">
+            <i class="fa fa-usd" aria-hidden="true" style="color:#563d7c"></i>
+            <i class="fa fa-usd" aria-hidden="true" style="color:#563d7c; margin-left:-5px;"></i>&nbsp;
+            avg. $8/pax
+          </h6>   
+          <br>
+          <blockquote class="blockquote">
+            <p class="small mb-0">This is my favorite resturant. The chicken cutlet is extremely yummy!!!</p>
+            <footer class="blockquote-footer text-right"><em>Food-lover Alice</em>
+          </blockquote>   
+
+          <blockquote class="blockquote">
+            <p class="small mb-0">Don't forget to grab this chance to try this resturant. </br>It's a great promotion in this month.</p>
+            <footer class="blockquote-footer text-right"><em>Mark David</em>
+          </blockquote>   
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+       <!-- Related Projects Row -->
+      <h3 class="my-4">All Restaurants</h3>
+
+      <div class="row">
+        <div class="col-md-4 col-sm-6 mb-4" ng-repeat="restaurant in restaurantlist">
+          <div class="card">
+            <img class="card-img-top" style="height: 200px; object-fit: cover;" 
+              src="{{restaurant.pic}}" alt="Card image lost">
+            <div class="card-body">
+              <h4 class="card-title">{{restaurant.name}} ({{restaurant.type}})</h4>
+              <p class="card-text">
+                <i class="fa fa-map-marker" aria-hidden="true" style="color:#563d7c"></i>&nbsp;{{restaurant.addr}}
+                <i class="fa fa-clock-o" aria-hidden="true" style="color:#563d7c"></i>&nbsp;{{restaurant.hour}}</br>
+                <i class="fa fa-usd" aria-hidden="true" style="color:#563d7c"></i>&nbsp;{{restaurant.price}}</br>      
+                {{restaurant.description}}
+              </p>
+              <a href="#" class="btn btn-primary">Find More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; fav.food 2017</br></p>
+        <p class="text-center text-secondary small" style="margin-top:8px;"><em>
+        Mark Meng: huasong.meng{at}gmail.com</br>
+        National University of Singapore</em>
+        </p>
+      </div>
+      <!-- /.container -->
+    </footer>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="https://use.fontawesome.com/7d177b33b1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script-->
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>
